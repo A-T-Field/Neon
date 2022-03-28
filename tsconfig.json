@@ -33,14 +33,17 @@
             "./types"
         ],
         "paths": {
-            "@/*": [
-                "src/*"
-            ],
             "biz/*": [
                 "src/biz/*"
             ],
-            "shared/*": [
+            "pages/*": [
+                "src/pages/*"
+            ],
+            "#/*": [
                 "src/shared/*"
+            ],
+            "@/*": [
+                "src/*"
             ]
         }
     },

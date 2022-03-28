@@ -2,7 +2,7 @@
  * @Author: maggot-code
  * @Date: 2022-03-27 14:37:54
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-03-27 15:16:21
+ * @LastEditTime: 2022-03-28 15:48:48
  * @Description: file content
  */
 import type { ResolveOptions, AliasOptions } from 'vite';
@@ -24,7 +24,7 @@ export function setupAlias() {
 
     Reflect.ownKeys(paths).forEach((keyRaw) => {
         const key = keyRaw.toString().split("/")[0];
-        const val = paths[keyRaw][0].split("/")[0];
+        const val = paths[keyRaw][0].split("/").slice(0, -1).join("/");
 
         alias[key] = resolve(root, val + '/');
     });
