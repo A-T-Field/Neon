@@ -2,7 +2,7 @@
  * @Author: maggot-code
  * @Date: 2022-03-28 15:14:01
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-03-28 15:50:53
+ * @LastEditTime: 2022-03-28 16:31:09
  * @Description: file content
 -->
 <script setup lang="ts">
@@ -41,5 +41,5 @@ const theme = computed(() => {
 </template>
 
 <style lang="scss">
-@import "#/style/index.scss";
+@import "@/style/index.scss";
 </style>

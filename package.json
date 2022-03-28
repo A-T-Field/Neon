@@ -10,11 +10,16 @@
         "clear": "npm cache clean --force && npm cache verify"
     },
     "dependencies": {
+        "axios": "^0.26.1",
+        "date-fns": "^2.28.0",
+        "lodash-es": "^4.17.21",
         "naive-ui": "^2.27.0",
         "normalize.css": "^8.0.1",
         "nprogress": "^0.2.0",
+        "pinia": "^2.0.12",
         "ua-parser-js": "^1.0.2",
-        "vue": "^3.2.25"
+        "vue": "^3.2.25",
+        "vue-router": "^4.0.14"
     },
     "devDependencies": {
         "@types/nprogress": "^0.2.0",

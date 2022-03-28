@@ -2,7 +2,7 @@
  * @Author: maggot-code
  * @Date: 2022-03-28 14:11:13
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-03-28 15:59:31
+ * @LastEditTime: 2022-03-28 16:28:32
  * @Description: file content
  */
 import { PluginsType } from '../plugins';
@@ -17,8 +17,7 @@ export function setupComponentPlugins(): PluginsType {
                 NaiveUiResolver()
             ],
             dirs: [
-                "src/shared/components",
-                "src/pages/**/components"
+                "src/components",
             ],
             extensions: ["vue", "tsx"],
             dts: true,
