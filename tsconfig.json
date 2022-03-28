@@ -35,6 +35,12 @@
         "paths": {
             "@/*": [
                 "src/*"
+            ],
+            "biz/*": [
+                "src/biz/*"
+            ],
+            "shared/*": [
+                "src/shared/*"
             ]
         }
     },

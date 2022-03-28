@@ -2,7 +2,7 @@
  * @Author: maggot-code
  * @Date: 2022-03-27 15:21:09
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-03-27 15:21:09
+ * @LastEditTime: 2022-03-28 13:29:01
  * @Description: file content
  */
 import type { CSSOptions } from 'vite';
@@ -11,7 +11,7 @@ export function viteCss(): CSSOptions {
     return {
         preprocessorOptions: {
             scss: {
-                additionalData: `@import "@/style/var.scss";`
+                additionalData: `@import "shared/style/var.scss";`
             }
         }
     }

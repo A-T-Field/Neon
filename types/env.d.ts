@@ -2,7 +2,7 @@
  * @Author: maggot-code
  * @Date: 2022-03-27 00:38:58
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-03-27 13:36:22
+ * @LastEditTime: 2022-03-28 14:00:48
  * @Description: file content
  */
 /// <reference types="vite/client" />
@@ -20,9 +20,18 @@ declare module '*.json' {
 }
 
 interface ImportMetaEnv extends Record<string, any> {
+    // public
+    // VITE_ENV_PREFIX: string;
     VITE_APP_TITLE: string;
+    VITE_PUBLIC_DIR: string;
+    VITE_CACHE_DIR: string;
+    VITE_OUT_DIR: string;
+    VITE_ASSETS_DIR: string;
+    // private
+    VITE_BASE_URI: string;
     VITE_DROP_DEBUGGER: boolean;
     VITE_DROP_CONSOLE: boolean;
+    VITE_LOG_LEVEL: "info" | "warn" | "error";
 }
 
 interface ImportMeta {

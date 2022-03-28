@@ -2,18 +2,16 @@
  * @Author: maggot-code
  * @Date: 2022-03-26 21:15:17
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-03-26 22:05:08
+ * @LastEditTime: 2022-03-28 13:25:17
  * @Description: file content
 -->
 <script setup lang="ts">
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
-import HelloWorld from './components/HelloWorld.vue'
 </script>
 
 <template>
     <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" />
 </template>
 
 <style>

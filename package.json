@@ -4,9 +4,10 @@
     "version": "0.0.0",
     "scripts": {
         "dev": "vite --host",
-        "build": "vue-tsc --noEmit && vite build",
-        "staging": "vue-tsc --noEmit && vite build --mode staging",
-        "preview": "vite preview"
+        "build": "npm run clear && vue-tsc --noEmit && vite build",
+        "staging": "npm run clear && vue-tsc --noEmit && vite build --mode staging",
+        "preview": "npm run clear && vite preview",
+        "clear": "npm cache clean --force && npm cache verify"
     },
     "dependencies": {
         "normalize.css": "^8.0.1",
