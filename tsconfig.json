@@ -39,9 +39,6 @@
             "biz/*": [
                 "src/biz/*"
             ],
-            "pages/*": [
-                "src/pages/*"
-            ],
             "#/*": [
                 "src/shared/*"
             ],
@@ -56,6 +53,7 @@
         "src/**/*.ts",
         "src/**/*.d.ts",
         "src/**/*.tsx",
+        "src/**/*.vue",
         "types/**/*.d.ts",
         "vite.config.ts",
         "components.d.ts",

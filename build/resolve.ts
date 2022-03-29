@@ -2,7 +2,7 @@
  * @Author: maggot-code
  * @Date: 2022-03-27 14:37:54
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-03-28 15:48:48
+ * @LastEditTime: 2022-03-29 14:39:05
  * @Description: file content
  */
 import type { ResolveOptions, AliasOptions } from 'vite';
@@ -28,6 +28,8 @@ export function setupAlias() {
 
         alias[key] = resolve(root, val + '/');
     });
+
+    console.log(alias);
 
     return alias;
 }
