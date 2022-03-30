@@ -1,5 +1,6 @@
 {
     "compilerOptions": {
+        "baseUrl": ".",
         "sourceMap": true,
         "jsx": "preserve",
         "target": "esnext",
@@ -32,9 +33,23 @@
             "./types"
         ]
     },
+    "include": [
+        "src/**/*.ts",
+        "src/**/*.d.ts",
+        "src/**/*.tsx",
+        "src/**/*.vue",
+        "config/**/*.ts",
+        "config/**/*.d.ts",
+        "types/**/*.d.ts",
+        "build/**/*.ts",
+        "build/**/*.d.ts",
+        "vite.config.ts",
+        "components.d.ts",
+        "package.json"
+    ],
     "exclude": [
         "node_modules",
         "dist"
     ],
-    "extends": "./config/tsconfig.include.json"
+    "extends": "./config/tsconfig.paths.json"
 }
