@@ -2,14 +2,14 @@
  * @Author: maggot-code
  * @Date: 2022-03-27 14:37:54
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-03-29 14:39:05
+ * @LastEditTime: 2022-03-30 10:53:33
  * @Description: file content
  */
 import type { ResolveOptions, AliasOptions } from 'vite';
 
 import { viteRoot } from './root';
 import { resolve } from 'path';
-import tsconfig from '../tsconfig.json';
+import tspaths from '../config/tsconfig.paths.json';
 
 export type ResolveType = ResolveOptions & {
     alias: AliasOptions;
@@ -18,7 +18,7 @@ export type ResolveType = ResolveOptions & {
 export const extensions = [".mjs", ".js", ".jsx", ".ts", ".tsx", ".json"];
 
 export function setupAlias() {
-    const { paths } = tsconfig.compilerOptions;
+    const { paths } = tspaths.compilerOptions;
     const root = viteRoot();
     const alias: Record<string, string> = {};
 
@@ -28,8 +28,6 @@ export function setupAlias() {
 
         alias[key] = resolve(root, val + '/');
     });
-
-    console.log(alias);
 
     return alias;
 }

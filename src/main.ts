@@ -2,29 +2,20 @@
  * @Author: maggot-code
  * @Date: 2022-03-26 21:15:17
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-03-29 14:30:12
+ * @LastEditTime: 2022-03-30 17:51:58
  * @Description: file content
  */
+import "normalize.css";
 import { createApp } from 'vue';
-import { setupPinia } from '@/infrastructure/pinia';
-import { setupRouter } from '@/infrastructure/router';
 import { default as AppProxy } from '@/layout/app-proxy';
 import { default as AppGlobal } from '@/layout/app-global';
 
-import "normalize.css";
+function bootstrap() {
+    const proxy = createApp(AppProxy);
+    const global = createApp(AppGlobal);
 
-async function bootstrap() {
-    const appProxy = createApp(AppProxy);
-
-    const appGlobal = createApp(AppGlobal);
-
-    setupPinia(appGlobal);
-
-    appProxy.mount("#app-proxy", true);
-
-    await setupRouter(appGlobal);
-
-    appGlobal.mount("#app", true);
+    proxy.mount("#app-proxy", true);
+    global.mount("#app", true);
 }
 
 void bootstrap();

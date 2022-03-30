@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "cnf/*": [
+                "config/*"
+            ],
+            "biz/*": [
+                "src/*"
+            ],
+            "#/*": [
+                "src/shared/*"
+            ],
+            "@/*": [
+                "src/*"
+            ]
+        }
+    }
+}

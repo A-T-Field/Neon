@@ -1,0 +1,17 @@
+{
+    "include": [
+        "src/**/*.ts",
+        "src/**/*.d.ts",
+        "src/**/*.tsx",
+        "src/**/*.vue",
+        "config/**/*.ts",
+        "config/**/*.d.ts",
+        "types/**/*.d.ts",
+        "build/**/*.ts",
+        "build/**/*.d.ts",
+        "vite.config.ts",
+        "components.d.ts",
+        "package.json"
+    ],
+    "extends": "./tsconfig.paths.json"
+}
