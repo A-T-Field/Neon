@@ -2,7 +2,7 @@
  * @Author: maggot-code
  * @Date: 2022-03-28 15:14:01
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-03-29 14:47:55
+ * @LastEditTime: 2022-03-31 14:53:26
  * @Description: file content
 -->
 <script setup lang="ts">
@@ -36,7 +36,9 @@ const theme = computed(() => {
         :date-locale="dateLocale"
         :theme="theme"
     >
-        <app-proxy></app-proxy>
+        <app-proxy>
+            <router-view></router-view>
+        </app-proxy>
     </n-config-provider>
 </template>
 

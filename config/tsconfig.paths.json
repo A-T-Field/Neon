@@ -6,7 +6,10 @@
                 "config/*"
             ],
             "biz/*": [
-                "src/*"
+                "src/biz/*"
+            ],
+            "mid/*": [
+                "src/middleware/*"
             ],
             "#/*": [
                 "src/shared/*"
