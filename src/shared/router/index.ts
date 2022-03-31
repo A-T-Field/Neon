@@ -2,7 +2,7 @@
  * @Author: maggot-code
  * @Date: 2022-03-30 23:24:38
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-03-31 16:50:12
+ * @LastEditTime: 2022-03-31 23:39:37
  * @Description: file content
  */
 import type { App } from 'vue';
@@ -18,18 +18,14 @@ const router = createRouter({
 });
 
 // predecessor and successor and scumbag
-export function setupRouterGuard(predecessor): Router {
-    router.beforeEach(predecessor);
-
-    // router.afterEach(successor);
-
-    // router.onError(scumbag);
-
-    return router;
-}
-
-export function setupRouter(app: App): Router {
+export async function setupRouter(app: App): Promise<Router> {
     app.use(router);
+
+    // router.beforeEach();
+    // router.afterEach();
+    // router.onError();
+
+    await router.isReady()
 
     return router;
 }
