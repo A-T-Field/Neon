@@ -5,14 +5,11 @@
             "cnf/*": [
                 "config/*"
             ],
-            "biz/*": [
+            "@biz/*": [
                 "src/biz/*"
             ],
-            "mid/*": [
+            "@mid/*": [
                 "src/middleware/*"
-            ],
-            "#/*": [
-                "src/shared/*"
             ],
             "@/*": [
                 "src/*"

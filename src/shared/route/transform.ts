@@ -2,7 +2,7 @@
  * @Author: maggot-code
  * @Date: 2022-03-31 10:08:11
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-03-31 15:48:43
+ * @LastEditTime: 2022-04-01 15:24:07
  * @Description: file content
  */
 import type {
@@ -11,10 +11,10 @@ import type {
     AppRouteRecordRaw,
 } from 'vue-router';
 
-import { map } from '#/utils/loop';
-import { assign } from '#/utils/common';
-import { flowRight } from '#/utils/lodash';
-import { isArray } from '#/utils/checkers';
+import { map } from '@/shared/utils/loop';
+import { assign } from '@/shared/utils/common';
+import { flowRight } from '@/shared/utils/lodash';
+import { isArray } from '@/shared/utils/checkers';
 
 type RouteMetaGiveup = Omit<RouteMeta, "parentName" | "fullPath">;
 type RouteRecord = (route: RouteRecordRaw) => RouteRecordRaw;

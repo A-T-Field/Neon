@@ -2,10 +2,10 @@
  * @Author: maggot-code
  * @Date: 2022-03-28 16:44:06
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-03-28 16:44:07
+ * @LastEditTime: 2022-04-01 15:25:14
  * @Description: file content
  */
-import { has, isValid, isArray, isString, isObject } from '#/utils/checkers';
+import { has, isValid, isArray, isString, isObject } from '@/shared/utils/checkers';
 
 type EachArrayIteratore<T> = (currentValue: T, key: number) => void | boolean;
 

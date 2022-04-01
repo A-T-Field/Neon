@@ -34,16 +34,16 @@
         ]
     },
     "include": [
+        "build/**/*.ts",
+        "build/**/*.d.ts",
+        "config/**/*.ts",
+        "config/**/*.d.ts",
         "src/**/*.ts",
         "src/**/*.d.ts",
         "src/**/*.tsx",
         "src/**/*.vue",
-        "config/**/*.ts",
-        "config/**/*.d.ts",
         "types/**/*.ts",
         "types/**/*.d.ts",
-        "build/**/*.ts",
-        "build/**/*.d.ts",
         "vite.config.ts",
         "components.d.ts",
         "package.json"

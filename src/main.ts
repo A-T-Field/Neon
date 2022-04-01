@@ -2,24 +2,27 @@
  * @Author: maggot-code
  * @Date: 2022-03-26 21:15:17
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-04-01 13:28:15
+ * @LastEditTime: 2022-04-01 16:45:15
  * @Description: file content
  */
 import "normalize.css";
+import AppProxy from '@/layout/AppProxy';
+import AppGlobal from '@/layout/AppGlobal';
 import { createApp } from 'vue';
-import { setupRouter } from '#/router';
-import { default as AppProxy } from "@/layout/AppProxy";
-import { default as AppGlobal } from "@/layout/AppGlobal";
+import { setupAppStore } from '@/shared/store/app';
+import { setupBizStore } from '@/shared/store/biz';
+import { setupRouter } from '@/shared/route';
 
-async function bootstrap() {
-    const proxy = createApp(AppProxy);
-    const global = createApp(AppGlobal);
+async function main() {
+    const appProxy = createApp(AppProxy);
+    const appGlobal = createApp(AppGlobal);
 
-    proxy.mount("#app-proxy", true);
+    setupAppStore(appProxy);
+    appProxy.mount("#app-proxy", true);
 
-    await setupRouter(global);
-
-    global.mount("#app", true);
+    setupBizStore(appGlobal);
+    await setupRouter(appGlobal);
+    appGlobal.mount("#app", true);
 }
 
-void await bootstrap();
+void await main();

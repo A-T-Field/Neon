@@ -2,11 +2,11 @@
  * @Author: maggot-code
  * @Date: 2022-03-28 16:42:05
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-03-28 16:43:22
+ * @LastEditTime: 2022-04-01 15:25:03
  * @Description: file content
  */
-import { isFunc } from '#/utils/checkers';
-import { warnLog, errorLog } from '#/utils/log';
+import { isFunc } from '@/shared/utils/checkers';
+import { warnLog, errorLog } from '@/shared/utils/log';
 
 function trim(string: string) {
     return (string || '').replace(/^[\s\uFEFF]+|[\s\uFEFF]+$/g, '');

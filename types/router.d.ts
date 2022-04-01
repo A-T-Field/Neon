@@ -2,10 +2,11 @@
  * @Author: maggot-code
  * @Date: 2022-03-28 16:51:20
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-03-31 14:00:18
+ * @LastEditTime: 2022-04-01 18:16:19
  * @Description: file content
  */
 import "vue-router";
+import type { ResponsibilityChain } from 'types/chain';
 
 declare module "vue-router" {
     interface RouteMeta {

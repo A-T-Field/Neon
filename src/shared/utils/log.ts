@@ -2,10 +2,10 @@
  * @Author: maggot-code
  * @Date: 2022-03-28 16:43:49
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-03-28 16:43:50
+ * @LastEditTime: 2022-04-01 15:25:10
  * @Description: file content
  */
-import { formatToDateTime } from '#/utils/date';
+import { formatToDateTime } from '@/shared/utils/date';
 
 const APP_NAME = import.meta.env.VITE_APP_SHORT_NAME;
 
