@@ -40,6 +40,7 @@
         "src/**/*.vue",
         "config/**/*.ts",
         "config/**/*.d.ts",
+        "types/**/*.ts",
         "types/**/*.d.ts",
         "build/**/*.ts",
         "build/**/*.d.ts",

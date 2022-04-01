@@ -2,7 +2,7 @@
  * @Author: maggot-code
  * @Date: 2022-03-26 21:15:17
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-03-31 23:30:58
+ * @LastEditTime: 2022-04-01 13:28:15
  * @Description: file content
  */
 import "normalize.css";
@@ -22,4 +22,4 @@ async function bootstrap() {
     global.mount("#app", true);
 }
 
-void bootstrap();
+void await bootstrap();
