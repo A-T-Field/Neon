@@ -2,7 +2,7 @@
  * @Author: maggot-code
  * @Date: 2022-03-31 10:08:11
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-04-01 15:24:07
+ * @LastEditTime: 2022-04-02 16:13:59
  * @Description: file content
  */
 import type {
@@ -11,6 +11,7 @@ import type {
     AppRouteRecordRaw,
 } from 'vue-router';
 
+import { selectPage } from '@/pages';
 import { map } from '@/shared/utils/loop';
 import { assign } from '@/shared/utils/common';
 import { flowRight } from '@/shared/utils/lodash';
@@ -28,7 +29,7 @@ const setupRouteName: RouteRecord = (route) => {
 const setupRouteMeta: RouteRecord = (route) => {
     const { meta, name } = route;
     const metaRaw = assign<RouteMetaGiveup, RouteMetaGiveup>(meta ?? {}, {
-        componentName: meta?.componentName ?? "unknow",
+        componentName: meta?.componentName ?? "Unknow",
         icon: meta?.icon ?? "",
         title: meta?.title ?? name,
         label: meta?.label ?? name,
@@ -79,9 +80,17 @@ const setupParentName: RouteParent = (route, parent) => {
 
     return route;
 };
+const setupComponent: RouteParent = (route) => {
+    const { meta } = route;
+
+    route.component = selectPage(meta!.componentName);
+
+    return route;
+}
 const setupParent = flowRight([
     setupFullPath,
-    setupParentName
+    setupParentName,
+    setupComponent
 ]);
 
 type HandlerTransform = (parent: RouteRecordRaw) => (route: RouteRecordRaw) => RouteRecordRaw;

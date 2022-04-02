@@ -1,14 +1,14 @@
 /*
  * @Author: maggot-code
- * @Date: 2022-04-01 17:59:22
+ * @Date: 2022-04-02 10:33:17
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-04-02 18:22:13
+ * @LastEditTime: 2022-04-02 18:22:01
  * @Description: file content
  */
 import type { AppRouteMiddleware, BeforeContextHandler } from 'vue-router';
 
 const handler: BeforeContextHandler = (context) => {
-    console.log('user power');
+    console.log('async route');
 
     return Promise.resolve({
         ...context,
@@ -18,8 +18,8 @@ const handler: BeforeContextHandler = (context) => {
 }
 
 export default {
-    name: "user-power",
-    order: 2,
+    name: "async-route",
+    order: 1,
     use: true,
     handler
 } as AppRouteMiddleware;

@@ -2,11 +2,11 @@
  * @Author: maggot-code
  * @Date: 2022-03-28 16:51:20
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-04-01 18:16:19
+ * @LastEditTime: 2022-04-02 18:22:07
  * @Description: file content
  */
 import "vue-router";
-import type { ResponsibilityChain } from 'types/chain';
+import type { ResponsibilityChain, ResponsibilityHandler } from 'types/chain';
 
 declare module "vue-router" {
     interface RouteMeta {
@@ -49,4 +49,16 @@ declare module "vue-router" {
     };
     type AppRouteMeta = Partial<RouteMeta>;
     type AppRouteRecordRaw = Array<RouteRecordRaw>;
+    interface AppRouteBeforeContext {
+        readonly to: RouteLocationNormalized;
+        readonly from: RouteLocationNormalized;
+        passto: boolean;
+        body: RouteLocationRaw;
+        [key: string]: any;
+    };
+    type BeforeContextInput = Pick<AppRouteBeforeContext, "to" | "from">;
+    type BeforeContextHandler = ResponsibilityHandler<BeforeContextInput, AppRouteBeforeContext>;
+    abstract class AppRouteMiddleware extends ResponsibilityChain {
+        handler: BeforeContextHandler;
+    }
 }
