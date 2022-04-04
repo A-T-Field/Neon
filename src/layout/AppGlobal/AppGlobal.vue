@@ -2,14 +2,13 @@
  * @Author: maggot-code
  * @Date: 2022-03-28 15:14:01
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-03-31 14:53:26
+ * @LastEditTime: 2022-04-04 17:54:59
  * @Description: file content
 -->
 <script setup lang="ts">
 import type { NLocale, NDateLocale } from 'naive-ui';
 
 import { zhCN, dateZhCN, lightTheme } from 'naive-ui';
-import { computed } from 'vue';
 
 type localeType = Nullable<NLocale>;
 const locale = computed<localeType>(() => {

@@ -45,6 +45,7 @@
         "types/**/*.ts",
         "types/**/*.d.ts",
         "vite.config.ts",
+        "auto-imports.d.ts",
         "components.d.ts",
         "package.json"
     ],
