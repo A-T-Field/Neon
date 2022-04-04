@@ -26,7 +26,9 @@
             "dom"
         ],
         "types": [
-            "vite/client"
+            "vite/client",
+            "vite-plugin-pages/client",
+            "vite-plugin-vue-layouts/client"
         ],
         "typeRoots": [
             "./node_modules/@types/",
