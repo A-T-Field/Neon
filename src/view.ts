@@ -2,14 +2,16 @@
  * @Author: maggot-code
  * @Date: 2022-04-04 18:52:17
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-04-04 19:29:12
+ * @LastEditTime: 2022-04-05 18:44:38
  * @Description: file content
  */
 import { assign } from '@/shared/utils/common';
+
 const gather = new Map();
 
 function transformKey(rawKey: string) {
-    const key = rawKey.split(".").slice(1, -1).join('/');
+    const key = rawKey.split(".").slice(1, -1).join("/");
+
     return key;
 }
 

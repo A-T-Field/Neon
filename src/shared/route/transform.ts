@@ -2,7 +2,7 @@
  * @Author: maggot-code
  * @Date: 2022-03-31 10:08:11
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-04-04 19:43:37
+ * @LastEditTime: 2022-04-05 15:45:48
  * @Description: file content
  */
 import type {
@@ -81,7 +81,10 @@ const setupParentName: RouteParent = (route, parent) => {
     return route;
 };
 const setupComponent: RouteParent = (route) => {
-    route.component = selectView(route.meta!.componentName);
+    if (!route.component) {
+        route.component = selectView(route.meta!.componentName);
+    }
+
     return route;
 }
 const setupParent = flowRight([
@@ -93,7 +96,6 @@ const setupParent = flowRight([
 type HandlerTransform = (parent: RouteRecordRaw) => (route: RouteRecordRaw) => RouteRecordRaw;
 const handlerTransform: HandlerTransform = (parent) => (route) => {
     const record = setupRecord(route);
-    console.log(record);
     if (record.children && record.children.length > 0) {
         record.children = routeTransform(record.children, record);
     }
