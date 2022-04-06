@@ -2,39 +2,47 @@
  * @Author: maggot-code
  * @Date: 2022-04-05 16:28:45
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-04-06 00:39:44
+ * @LastEditTime: 2022-04-06 17:58:08
  * @Description: file content
  */
-import type { Router } from 'vue-router';
+import type {
+    Router,
+    RouteLocationNormalized,
+    RouteLocationRaw
+} from 'vue-router';
+
 import {
-    Channel,
-    ChannelSupport,
-    ChannelTask,
-    ChannelDriveHandler
-} from '@/shared/utils/channel';
+    LowercallSupport,
+    Lowercall
+} from '@/shared/utils/lower-call';
 
-class RouteChannel implements ChannelSupport {
-    task: ChannelTask[] = [];
-    use = (middleware: ChannelTask): void => {
-        this.task.push(middleware);
-    }
+type RouteBeforeContext = { to: RouteLocationNormalized, from: RouteLocationNormalized };
+type RouteBeforeReturn = void | boolean | undefined | Error | RouteLocationRaw;
+
+const p1 = async ({ ctx }) => {
+    console.log(1);
+    ctx["p1"] = true;
+    // await test1(ctx);
+    console.log(2);
+    return ctx;
 }
 
-const p1: ChannelDriveHandler = (body) => {
-    console.log('p1');
-    body.ctx.p1 = true;
-    return body.next(body.ctx);
-}
-const p2: ChannelDriveHandler = (body) => {
-    console.log('p2');
-    body.ctx.p2 = true;
-    return body.next(body.ctx);
-}
+const routeBeforeGuard = Lowercall.create({
+    task: [
+        {
+            name: "p1",
+            handler: p1
+        }
+    ]
+});
 
-const routerBefore = Channel.create(new RouteChannel());
-routerBefore.collect([p1, p2]);
-const res = routerBefore.dispatch({});
-console.log(res);
-console.log(routerBefore);
+console.log(routeBeforeGuard);
 
-export function setupGuard(router: Router) { }
+export function setupGuard(router: Router) {
+    router.beforeEach(async (to, from) => {
+        const res = await routeBeforeGuard.dispatch({});
+        console.log(res);
+
+        return true;
+    });
+}
