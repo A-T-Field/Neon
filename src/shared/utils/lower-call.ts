@@ -2,7 +2,7 @@
  * @Author: maggot-code
  * @Date: 2022-04-06 09:43:00
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-04-06 18:01:32
+ * @LastEditTime: 2022-04-06 18:12:58
  * @Description: file content
  */
 import { isArray, isFunc } from '@/shared/utils/checkers';
@@ -25,58 +25,63 @@ export abstract class LowercallSupport {
 }
 
 export class Lowercall {
-    // inject
-    private embryo: LowercallSupport;
+    // 注入的链
+    private chain: LowercallSupport;
+    // 记录目前链节点位置
     private idx: number;
     private constructor(lowercall: LowercallSupport) {
-        this.embryo = lowercall;
+        this.chain = lowercall;
         this.idx = 0;
         this.sort();
     }
-    get use() {
-        return isFunc(this.embryo.use)
-            ? this.embryo.use
-            : (node: any) => node;
-    }
     get task() {
-        return this.embryo.task;
+        return this.chain.task;
     }
     get size() {
         return this.task.length;
     }
-    get notNext() {
+    get noNext() {
         return this.size - 1 <= this.idx;
     }
-    get notTask() {
+    get noTask() {
         return this.size <= 0;
+    }
+    get use() {
+        return isFunc(this.chain.use)
+            ? this.chain.use
+            : (node: any) => node;
     }
     collect<T extends LowercallTask>(flowPath: LowercallTaskGather<T> | T) {
         const work = (isArray(flowPath) ? flowPath : [flowPath]);
         if (work.length <= 0) return this;
 
         work.forEach((raw) => {
-            this.embryo.task.push(this.use(raw));
+            this.chain.task.push(this.use(raw));
         });
+
         this.sort();
+
         return this;
     }
     dispatch = async (context?: any) => {
-        if (this.notTask) return Promise.resolve(undefined);
+        if (this.noTask) return Promise.resolve(undefined);
 
-        let token = false;
+        // 中断信号，用来记录本次调用是否被中断过
+        let sig = false;
         const cancel = (res: any) => {
-            token = true;
+            sig = true;
             return res;
         }
 
         const { handler } = this.task[this.idx];
-
         const result = await handler({
             ctx: context,
             cancel
         });
 
-        if (this.notNext || token) {
+        // 没有下一个任务或者信号被中断结束链,重置记录节点
+        // 继续下一个任务
+        if (this.noNext || sig) {
             this.idx = 0;
             return Promise.resolve(result);
         } else {
@@ -86,7 +91,7 @@ export class Lowercall {
     }
     sort() {
         if (this.size <= 0) return;
-        this.embryo.task.sort((prev, next) => {
+        this.chain.task.sort((prev, next) => {
             const prevOrder = prev.order ?? 0;
             const nextOrder = next.order ?? 0;
             return prevOrder - nextOrder;
