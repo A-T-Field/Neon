@@ -2,9 +2,10 @@
  * @Author: maggot-code
  * @Date: 2022-04-06 09:43:00
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-04-06 18:12:58
+ * @LastEditTime: 2022-04-07 17:01:03
  * @Description: file content
  */
+import { each } from '@/shared/utils/loop';
 import { isArray, isFunc } from '@/shared/utils/checkers';
 
 export type LowercallHandlerBody = {
@@ -19,11 +20,34 @@ export interface LowercallTask {
     use?: boolean;
 };
 export type LowercallTaskGather<T extends LowercallTask = LowercallTask> = Array<T>;
-export abstract class LowercallSupport {
-    abstract task: LowercallTaskGather;
-    abstract use?: (task: LowercallTask) => LowercallTask;
+export class LowercallSupport {
+    task: LowercallTaskGather = [];
+    use?: (task: LowercallTask) => LowercallTask;
 }
 
+export class LowercallWork<W> {
+    private work: Array<W> = [];
+    private constructor(work: Array<W>) {
+        this.work = work;
+    }
+    get noWork() {
+        return this.work.length <= 0;
+    }
+    install(handler: (raw: any) => any) {
+        return this.work.map((raw) => {
+            return handler(raw);
+        });
+    }
+    static create<W = any>(work: Array<W> | W) {
+        return new LowercallWork<W>(
+            isArray(work)
+                ? work
+                : [work]
+        );
+    }
+}
+
+export type LowercallCollect = Pick<Lowercall, "collect">;
 export class Lowercall {
     // 注入的链
     private chain: LowercallSupport;
@@ -51,36 +75,30 @@ export class Lowercall {
             ? this.chain.use
             : (node: any) => node;
     }
-    collect<T extends LowercallTask>(flowPath: LowercallTaskGather<T> | T) {
-        const work = (isArray(flowPath) ? flowPath : [flowPath]);
-        if (work.length <= 0) return this;
-
-        work.forEach((raw) => {
-            this.chain.task.push(this.use(raw));
-        });
-
-        this.sort();
-
-        return this;
-    }
-    dispatch = async (context?: any) => {
-        if (this.noTask) return Promise.resolve(undefined);
-
+    private handlerTask = async (context: any) => {
         // 中断信号，用来记录本次调用是否被中断过
         let sig = false;
+
         const cancel = (res: any) => {
             sig = true;
             return res;
         }
 
-        const { handler } = this.task[this.idx];
-        const result = await handler({
+        const result = await this.task[this.idx]?.handler({
             ctx: context,
             cancel
         });
 
-        // 没有下一个任务或者信号被中断结束链,重置记录节点
-        // 继续下一个任务
+        return { sig, result }
+    }
+    dispatch = async (context?: any) => {
+        if (this.noTask) return Promise.resolve(undefined);
+
+        // 执行任务
+        const { sig, result } = await this.handlerTask(context);
+
+        // 没有下一个任务或者信号被中断会结束链,重置记录节点
+        // 否则的话继续下一个任务
         if (this.noNext || sig) {
             this.idx = 0;
             return Promise.resolve(result);
@@ -88,6 +106,21 @@ export class Lowercall {
             this.idx += 1;
             return await this.dispatch(context);
         }
+    }
+    collect<T extends LowercallTask>(flowPath: LowercallTaskGather<T> | T) {
+        const work = LowercallWork.create<T>(flowPath);
+
+        if (work.noWork) return this;
+
+        this.chain.task.push(...work.install(this.use));
+
+        this.sort();
+
+        return this;
+    }
+    install(modules: any) {
+        each(modules, (module) => module?.default(this));
+        return this;
     }
     sort() {
         if (this.size <= 0) return;
@@ -97,7 +130,7 @@ export class Lowercall {
             return prevOrder - nextOrder;
         })
     }
-    static create(lowercall: LowercallSupport) {
+    static create<LS extends LowercallSupport = LowercallSupport>(lowercall: LS) {
         return new Lowercall(lowercall);
     }
 }
