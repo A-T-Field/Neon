@@ -2,18 +2,18 @@
  * @Author: maggot-code
  * @Date: 2022-03-28 16:41:10
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-04-02 15:37:18
+ * @LastEditTime: 2022-04-08 16:18:56
  * @Description: file content
  */
 import type { App, Component } from 'vue';
 
-import { uid } from '@/shared/utils/id';
+import { uuidv4 } from '@/shared/utils/id';
 import { isEmpty } from '@/shared/utils/checkers';
 
 export const componentInstall = (app: App) => (component: Component) => {
     const { name } = component;
 
-    return app.component(name ?? uid(), component);
+    return app.component(name ?? uuidv4(), component);
 }
 
 export function getOrigin(): string {

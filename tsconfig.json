@@ -46,6 +46,7 @@
         "src/**/*.vue",
         "types/**/*.ts",
         "types/**/*.d.ts",
+        "test/**/*.test.ts",
         "vite.config.ts",
         "auto-imports.d.ts",
         "components.d.ts",

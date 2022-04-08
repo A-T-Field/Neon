@@ -2,11 +2,10 @@
  * @Author: maggot-code
  * @Date: 2022-03-28 16:42:05
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-04-01 15:25:03
+ * @LastEditTime: 2022-04-08 16:35:32
  * @Description: file content
  */
 import { isFunc } from '@/shared/utils/checkers';
-import { warnLog, errorLog } from '@/shared/utils/log';
 
 function trim(string: string) {
     return (string || '').replace(/^[\s\uFEFF]+|[\s\uFEFF]+$/g, '');
@@ -17,14 +16,14 @@ export const on: EventController<EventListenerOrEventListenerObject> = (element,
     if (element && event && handler) {
         element.addEventListener(event, handler, false);
     } else {
-        warnLog("Not found 'element' | 'event' | 'handler' !");
+        console.warn("Not found 'element' | 'event' | 'handler' !");
     }
 }
 export const off: EventController<any> = (element, event, handler) => {
     if (element && event && handler) {
         element.removeEventListener(event, handler, false);
     } else {
-        warnLog("Not found 'element' | 'event' | 'handler' !");
+        console.warn("Not found 'element' | 'event' | 'handler' !");
     }
 }
 export function once(
@@ -93,7 +92,7 @@ export function getViewportOffset(element: Element): ViewportOffsetResult {
 
 export function hasClass(el: Element, cls: string) {
     if (!el || !cls) return false;
-    if (cls.indexOf(' ') !== -1) errorLog('className should not contain space.');
+    if (cls.indexOf(' ') !== -1) console.error('className should not contain space.');
     if (el.classList) {
         return el.classList.contains(cls);
     } else {

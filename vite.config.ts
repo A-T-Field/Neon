@@ -2,9 +2,11 @@
  * @Author: maggot-code
  * @Date: 2022-03-26 21:15:17
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-03-28 14:06:28
+ * @LastEditTime: 2022-04-08 15:37:17
  * @Description: file content
  */
+/// <reference types="vitest" />
+
 import type { UserConfigExport, UserConfig } from 'vite';
 
 import { defineConfig } from 'vite';
@@ -44,7 +46,11 @@ const setupConfig: UserConfigExport = ({ command, mode }): UserConfig => {
         },
         optimizeDeps: {
             include: []
-        }
+        },
+        test: {
+            globals: true,
+            environment: 'node',
+        },
     }
 }
 
