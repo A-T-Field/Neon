@@ -37,6 +37,12 @@
         "paths": {
             "@neon/*": [
                 "src/*"
+            ],
+            "@neon-router/*": [
+                "src/services/router/*"
+            ],
+            "@neon-network/*": [
+                "src/services/network/*"
             ]
         }
     },
