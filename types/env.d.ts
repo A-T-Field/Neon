@@ -2,7 +2,7 @@
  * @Author: maggot-code
  * @Date: 2022-03-27 00:38:58
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-04-04 21:57:17
+ * @LastEditTime: 2022-04-19 23:51:00
  * @Description: file content
  */
 /// <reference types="vite/client" />
@@ -17,28 +17,6 @@ declare module '*.vue' {
 declare module '*.json' {
     const value: any;
     export default value;
-}
-
-declare module 'layouts-generated' {
-    import type { RouteRecordRaw } from 'vue-router'
-    export function setupLayouts(routes: RouteRecordRaw[]): RouteRecordRaw[]
-}
-
-declare module 'virtual:generated-layouts' {
-    import type { RouteRecordRaw } from 'vue-router'
-    export function setupLayouts(routes: RouteRecordRaw[]): RouteRecordRaw[]
-}
-
-declare module 'pages-generated' {
-    import type { RouteRecordRaw } from 'vue-router'
-    const routes: RouteRecordRaw[]
-    export default routes
-}
-
-declare module 'virtual:generated-pages' {
-    import type { RouteRecordRaw } from 'vue-router'
-    const routes: RouteRecordRaw[]
-    export default routes
 }
 
 interface ImportMetaEnv extends Record<string, any> {
