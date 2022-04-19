@@ -2,10 +2,10 @@
  * @Author: maggot-code
  * @Date: 2022-03-28 16:42:05
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-04-08 16:35:32
+ * @LastEditTime: 2022-04-19 23:33:27
  * @Description: file content
  */
-import { isFunc } from '@neon/shared/utils/checkers';
+import { isFunc } from '@neon/utils/checkers';
 
 function trim(string: string) {
     return (string || '').replace(/^[\s\uFEFF]+|[\s\uFEFF]+$/g, '');

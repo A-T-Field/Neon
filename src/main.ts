@@ -2,17 +2,13 @@
  * @Author: maggot-code
  * @Date: 2022-03-26 21:15:17
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-04-19 22:26:01
+ * @LastEditTime: 2022-04-19 23:30:03
  * @Description: file content
  */
 import { createApp } from 'vue';
-import AppGlobal from '@neon/components/AppGlobal/AppGlobal.vue';
 import "normalize.css";
+import "@neon/style/index.scss";
 
-async function main() {
-    const global = createApp(AppGlobal);
-
-    global.mount("#app", true);
-}
+async function main() { }
 
 void main();

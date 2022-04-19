@@ -2,10 +2,10 @@
  * @Author: maggot-code
  * @Date: 2022-03-28 16:44:06
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-04-01 15:25:14
+ * @LastEditTime: 2022-04-19 23:33:27
  * @Description: file content
  */
-import { has, isValid, isArray, isString, isObject } from '@neon/shared/utils/checkers';
+import { has, isValid, isArray, isString, isObject } from '@neon/utils/checkers';
 
 type EachArrayIteratore<T> = (currentValue: T, key: number) => void | boolean;
 
