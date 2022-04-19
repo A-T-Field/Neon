@@ -1,7 +1,7 @@
 {
     "name": "neon",
     "private": true,
-    "version": "1.0.1-0",
+    "version": "1.0.1-beta.1",
     "scripts": {
         "dev": "vite --host",
         "build": "npm run clear && vue-tsc --noEmit && vite build",
