@@ -11,7 +11,7 @@ export function viteCss(): CSSOptions {
     return {
         preprocessorOptions: {
             scss: {
-                additionalData: `@import "@/style/var.scss";`
+                additionalData: `@import "@neon/style/var.scss";`
             }
         }
     }

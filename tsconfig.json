@@ -33,28 +33,15 @@
         "typeRoots": [
             "./node_modules/@types/",
             "./types"
-        ]
+        ],
+        "paths": {
+            "@neon/*": [
+                "src/*"
+            ]
+        }
     },
-    "include": [
-        "build/**/*.ts",
-        "build/**/*.d.ts",
-        "config/**/*.ts",
-        "config/**/*.d.ts",
-        "src/**/*.ts",
-        "src/**/*.d.ts",
-        "src/**/*.tsx",
-        "src/**/*.vue",
-        "types/**/*.ts",
-        "types/**/*.d.ts",
-        "test/**/*.test.ts",
-        "vite.config.ts",
-        "auto-imports.d.ts",
-        "components.d.ts",
-        "package.json"
-    ],
     "exclude": [
         "node_modules",
         "dist"
-    ],
-    "extends": "./config/tsconfig.paths.json"
+    ]
 }

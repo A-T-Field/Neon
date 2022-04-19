@@ -7,8 +7,8 @@
  */
 import type { App, Component } from 'vue';
 
-import { uuidv4 } from '@/shared/utils/id';
-import { isEmpty } from '@/shared/utils/checkers';
+import { uuidv4 } from '@neon/shared/utils/id';
+import { isEmpty } from '@neon/shared/utils/checkers';
 
 export const componentInstall = (app: App) => (component: Component) => {
     const { name } = component;

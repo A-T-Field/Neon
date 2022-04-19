@@ -5,7 +5,7 @@
  * @LastEditTime: 2022-04-08 16:35:32
  * @Description: file content
  */
-import { isFunc } from '@/shared/utils/checkers';
+import { isFunc } from '@neon/shared/utils/checkers';
 
 function trim(string: string) {
     return (string || '').replace(/^[\s\uFEFF]+|[\s\uFEFF]+$/g, '');

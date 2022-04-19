@@ -2,14 +2,14 @@
  * @Author: maggot-code
  * @Date: 2022-03-27 14:37:54
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-03-30 10:53:33
+ * @LastEditTime: 2022-04-19 22:52:09
  * @Description: file content
  */
 import type { ResolveOptions, AliasOptions } from 'vite';
 
 import { viteRoot } from './root';
 import { resolve } from 'path';
-import tspaths from '../config/tsconfig.paths.json';
+import tspaths from '../tsconfig.json';
 
 export type ResolveType = ResolveOptions & {
     alias: AliasOptions;

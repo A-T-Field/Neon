@@ -5,7 +5,7 @@
  * @LastEditTime: 2022-04-01 15:25:14
  * @Description: file content
  */
-import { has, isValid, isArray, isString, isObject } from '@/shared/utils/checkers';
+import { has, isValid, isArray, isString, isObject } from '@neon/shared/utils/checkers';
 
 type EachArrayIteratore<T> = (currentValue: T, key: number) => void | boolean;
 
