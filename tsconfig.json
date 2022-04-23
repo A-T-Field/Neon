@@ -38,14 +38,26 @@
             "@neon/*": [
                 "src/*"
             ],
-            "@neon-biz/*": [
-                "src/biz/*"
+            "@neon-http/*": [
+                "src/services/network/http/*"
             ],
             "@neon-router/*": [
                 "src/services/router/*"
             ],
-            "@neon-network/*": [
-                "src/services/network/*"
+            "@neon-store/*": [
+                "src/services/store/*"
+            ],
+            "@neon-conf/*": [
+                "src/infra/config/*"
+            ],
+            "@neon-utils/*": [
+                "src/infra/utils/*"
+            ],
+            "@neon-layouts/*": [
+                "src/infra/layouts/*"
+            ],
+            "@neon-components/*": [
+                "src/components/*"
             ]
         }
     },

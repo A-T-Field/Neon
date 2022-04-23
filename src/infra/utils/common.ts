@@ -2,13 +2,13 @@
  * @Author: maggot-code
  * @Date: 2022-03-28 16:41:10
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-04-19 23:33:26
+ * @LastEditTime: 2022-04-23 17:42:47
  * @Description: file content
  */
 import type { App, Component } from 'vue';
 
-import { uuidv4 } from '@neon/utils/id';
-import { isEmpty } from '@neon/utils/checkers';
+import { uuidv4 } from "@neon-utils/id";
+import { isEmpty } from '@neon-utils/checkers';
 
 export const componentInstall = (app: App) => (component: Component) => {
     const { name } = component;
