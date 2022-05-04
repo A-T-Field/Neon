@@ -2,11 +2,11 @@
  * @Author: maggot-code
  * @Date: 2022-03-26 21:15:17
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-04-23 17:40:51
+ * @LastEditTime: 2022-04-28 23:05:40
  * @Description: file content
  */
 import { createApp } from 'vue';
-import { setupRouter } from "@neon-router/provide";
+import { setupRouter } from "@neon-router/setup";
 
 import AppProxy from "@neon-layouts/AppProxy.vue";
 import App from "@neon-layouts/App.vue";

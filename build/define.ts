@@ -2,7 +2,7 @@
  * @Author: maggot-code
  * @Date: 2022-03-27 14:11:06
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-03-27 14:33:39
+ * @LastEditTime: 2022-05-01 19:35:11
  * @Description: file content
  */
 import pkg from '../package.json';
@@ -26,6 +26,7 @@ export function viteDefine() {
 
     return {
         pkg: __APP_INFO__,
-        lastBuildTime: Date.now()
+        lastBuildTime: Date.now(),
+        __VUE_OPTIONS_API__: false,
     }
 }
