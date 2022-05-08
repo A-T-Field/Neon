@@ -2,11 +2,11 @@
  * @Author: maggot-code
  * @Date: 2022-04-19 23:57:05
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-05-04 16:02:05
+ * @LastEditTime: 2022-05-08 16:51:19
  * @Description: file content
 -->
 <script setup lang='ts'>
-import "@neon-http/share";
+import "@neon-http/http";
 </script>
 
 <template>
