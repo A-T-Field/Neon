@@ -1,0 +1,8 @@
+{
+    "namespace": "api.thecatapi.com",
+    "service": [
+        {
+            "protocol": "https"
+        }
+    ]
+}
