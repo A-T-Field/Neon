@@ -2,11 +2,10 @@
  * @Author: maggot-code
  * @Date: 2022-03-26 21:15:17
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-04-28 23:05:40
+ * @LastEditTime: 2022-06-05 05:15:07
  * @Description: file content
  */
 import { createApp } from 'vue';
-import { setupRouter } from "@neon-router/setup";
 
 import AppProxy from "@neon-layouts/AppProxy.vue";
 import App from "@neon-layouts/App.vue";
@@ -19,8 +18,6 @@ async function main() {
     const app = createApp(App);
 
     appProxy.mount('#app-proxy');
-
-    await setupRouter(app);
 
     app.mount('#app');
 }
