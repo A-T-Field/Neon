@@ -2,18 +2,18 @@
  * @Author: maggot-code
  * @Date: 2022-03-27 15:32:12
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-03-28 14:05:10
+ * @LastEditTime: 2022-06-12 00:52:18
  * @Description: file content
  */
 import type { BuildOptions } from 'vite';
 
 export function viteBuild(env: ImportMetaEnv): BuildOptions {
     return {
-        target: "modules",
-        minify: "terser",
-        sourcemap: "hidden",
-        chunkSizeWarningLimit: 500,
-        assetsInlineLimit: 4096,
+    target: "modules",
+minify: "terser",
+sourcemap: "hidden",
+chunkSizeWarningLimit: 500,
+assetsInlineLimit: 4096,
         polyfillModulePreload: true,
         cssCodeSplit: true,
         ssrManifest: false,
