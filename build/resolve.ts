@@ -2,7 +2,7 @@
  * @Author: maggot-code
  * @Date: 2022-03-27 14:37:54
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-04-19 22:52:09
+ * @LastEditTime: 2022-06-11 21:53:57
  * @Description: file content
  */
 import type { ResolveOptions, AliasOptions } from 'vite';
@@ -15,7 +15,7 @@ export type ResolveType = ResolveOptions & {
     alias: AliasOptions;
 }
 
-export const extensions = [".mjs", ".js", ".jsx", ".ts", ".tsx", ".json"];
+export const extensions = [".mjs", ".js", ".jsx", ".ts", ".tsx", ".json", ".proto"];
 
 export function setupAlias() {
     const { paths } = tspaths.compilerOptions;

@@ -2,7 +2,7 @@
  * @Author: maggot-code
  * @Date: 2022-03-27 15:28:32
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-04-08 09:59:58
+ * @LastEditTime: 2022-06-11 21:51:32
  * @Description: file content
  */
 import type { PluginOption } from 'vite';
@@ -21,9 +21,9 @@ export type PluginsType = (PluginOption | PluginOption[])[];
 
 export function vitePlugins(command: ViteCommand): PluginsType {
     const plugins: PluginsType = [
-        ...setupVuePlugins(),
         // ...setupPages(),
         // ...setupVueLayouts(),
+        ...setupVuePlugins(),
         ...setupComponentPlugins(),
         ...setupImportPlugins()
     ];
