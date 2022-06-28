@@ -2,17 +2,18 @@
  * @Author: maggot-code
  * @Date: 2022-03-28 16:40:25
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-03-28 16:40:25
+ * @LastEditTime: 2022-06-28 11:07:03
  * @Description: file content
  */
 const ua = navigator.userAgent.toLowerCase();
 const testUa = (regExp: RegExp) => regExp.test(ua);
-const testVs = (regExp: RegExp) =>
-    ua
+const testVs = (regExp: RegExp) => {
+    return ua
         .match(regExp)
         ?.toString()
         .replace(/[^0-9|_.]/g, '')
         .replace(/_/g, '.');
+};
 
 // 系统
 const system =
