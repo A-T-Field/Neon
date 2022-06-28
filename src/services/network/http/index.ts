@@ -5,7 +5,7 @@
  * @LastEditTime: 2022-06-05 22:11:41
  * @Description: file content
  */
-import type { } from "axios";
+import type {} from 'axios';
 
 // request
 

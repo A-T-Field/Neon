@@ -10,14 +10,14 @@ import type { ESBuildOptions } from 'vite';
 export function viteESBuild(env: ImportMetaEnv): ESBuildOptions {
     const usePure: Array<string> = [];
 
-    env.VITE_DROP_CONSOLE && usePure.push("console.log");
+    env.VITE_DROP_CONSOLE && usePure.push('console.log');
 
-    env.VITE_DROP_DEBUGGER && usePure.push("debugger");
+    env.VITE_DROP_DEBUGGER && usePure.push('debugger');
 
     return {
         pure: usePure,
         jsxInject: `import {h} from 'vue';`,
-        jsxFactory: "h",
-        jsxFragment: "Fragment"
-    }
+        jsxFactory: 'h',
+        jsxFragment: 'Fragment',
+    };
 }

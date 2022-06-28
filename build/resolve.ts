@@ -13,9 +13,17 @@ import tspaths from '../tsconfig.json';
 
 export type ResolveType = ResolveOptions & {
     alias: AliasOptions;
-}
+};
 
-export const extensions = [".mjs", ".js", ".jsx", ".ts", ".tsx", ".json", ".proto"];
+export const extensions = [
+    '.mjs',
+    '.js',
+    '.jsx',
+    '.ts',
+    '.tsx',
+    '.json',
+    '.proto',
+];
 
 export function setupAlias() {
     const { paths } = tspaths.compilerOptions;
@@ -23,8 +31,8 @@ export function setupAlias() {
     const alias: Record<string, string> = {};
 
     Reflect.ownKeys(paths).forEach((keyRaw) => {
-        const key = keyRaw.toString().split("/")[0];
-        const val = paths[keyRaw][0].split("/").slice(0, -1).join("/");
+        const key = keyRaw.toString().split('/')[0];
+        const val = paths[keyRaw][0].split('/').slice(0, -1).join('/');
 
         alias[key] = resolve(root, val + '/');
     });
@@ -37,6 +45,6 @@ export function viteResolve(): ResolveType {
         extensions,
         preserveSymlinks: false,
         alias: setupAlias(),
-        dedupe: ["vue"]
-    }
+        dedupe: ['vue'],
+    };
 }

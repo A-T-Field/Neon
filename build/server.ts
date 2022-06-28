@@ -22,11 +22,9 @@ export function viteServer(): ServerOptions {
         force: true,
         fs: {
             strict: true,
-            allow: [
-                searchForWorkspaceRoot(root)
-            ],
-            deny: ['.env', '.env.*', '*.{pem,crt}']
+            allow: [searchForWorkspaceRoot(root)],
+            deny: ['.env', '.env.*', '*.{pem,crt}'],
         },
-        proxy: viteServerProxy()
-    }
+        proxy: viteServerProxy(),
+    };
 }

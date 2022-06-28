@@ -12,10 +12,10 @@ import visualizer from 'rollup-plugin-visualizer';
 export function setupVisualizerPlugins(): PluginsType {
     return [
         visualizer({
-            filename: "./node_modules/.cache/visualizer/stats.html",
+            filename: './node_modules/.cache/visualizer/stats.html',
             open: true,
             gzipSize: true,
-            brotliSize: true
-        })
+            brotliSize: true,
+        }),
     ];
 }

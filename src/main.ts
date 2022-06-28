@@ -7,11 +7,11 @@
  */
 import { createApp } from 'vue';
 
-import AppProxy from "@neon-layouts/AppProxy.vue";
-import App from "@neon-layouts/App.vue";
+import AppProxy from '@neon-layouts/AppProxy.vue';
+import App from '@neon-layouts/App.vue';
 
-import "normalize.css";
-import "@neon/assets/style/index.scss";
+import 'normalize.css';
+import '@neon/assets/style/index.scss';
 
 async function main() {
     const appProxy = createApp(AppProxy);

@@ -12,20 +12,24 @@ function trim(string: string) {
 }
 
 type EventController<H> = (element: Element, event: string, handler: H) => void;
-export const on: EventController<EventListenerOrEventListenerObject> = (element, event, handler) => {
+export const on: EventController<EventListenerOrEventListenerObject> = (
+    element,
+    event,
+    handler
+) => {
     if (element && event && handler) {
         element.addEventListener(event, handler, false);
     } else {
         console.warn("Not found 'element' | 'event' | 'handler' !");
     }
-}
+};
 export const off: EventController<any> = (element, event, handler) => {
     if (element && event && handler) {
         element.removeEventListener(event, handler, false);
     } else {
         console.warn("Not found 'element' | 'event' | 'handler' !");
     }
-}
+};
 export function once(
     element: Element,
     event: string,
@@ -36,7 +40,7 @@ export function once(
             handler.apply(this, args);
         }
         off(element, event, listener);
-    }
+    };
     on(element, event, listener);
 }
 
@@ -68,7 +72,12 @@ export function getViewportOffset(element: Element): ViewportOffsetResult {
 
     const box = getBoundingClientRect(element);
 
-    const { left: retLeft, top: rectTop, width: rectWidth, height: rectHeight } = box as DOMRect;
+    const {
+        left: retLeft,
+        top: rectTop,
+        width: rectWidth,
+        height: rectHeight,
+    } = box as DOMRect;
 
     const scrollLeft = (pageXOffset || docScrollLeft) - (docClientLeft || 0);
     const scrollTop = (pageYOffset || docScrollTop) - (docClientTop || 0);
@@ -92,7 +101,8 @@ export function getViewportOffset(element: Element): ViewportOffsetResult {
 
 export function hasClass(el: Element, cls: string) {
     if (!el || !cls) return false;
-    if (cls.indexOf(' ') !== -1) console.error('className should not contain space.');
+    if (cls.indexOf(' ') !== -1)
+        console.error('className should not contain space.');
     if (el.classList) {
         return el.classList.contains(cls);
     } else {

@@ -7,12 +7,9 @@
  */
 import { PluginsType } from '../plugins';
 
-import vue from "@vitejs/plugin-vue";
+import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
 
 export function setupVuePlugins(): PluginsType {
-    return [
-        vue(),
-        vueJsx()
-    ];
+    return [vue(), vueJsx()];
 }

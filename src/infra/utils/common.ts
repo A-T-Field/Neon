@@ -7,14 +7,14 @@
  */
 import type { App, Component } from 'vue';
 
-import { uuidv4 } from "@neon-utils/id";
+import { uuidv4 } from '@neon-utils/id';
 import { isEmpty } from '@neon-utils/checkers';
 
 export const componentInstall = (app: App) => (component: Component) => {
     const { name } = component;
 
     return app.component(name ?? uuidv4(), component);
-}
+};
 
 export function getOrigin(): string {
     const { protocol, hostname } = window.location;

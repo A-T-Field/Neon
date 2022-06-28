@@ -5,9 +5,9 @@
  * @LastEditTime: 2022-04-21 22:55:17
  * @Description: file content
  */
-import "vue-router";
+import 'vue-router';
 
-declare module "vue-router" {
+declare module 'vue-router' {
     interface RouteMeta {
         // 参数部分 ⬇
         // 父级标识
@@ -44,11 +44,11 @@ declare module "vue-router" {
         isDisabled: boolean;
         // 是否隐藏
         isHidden: boolean;
-        // 是否缓存 
+        // 是否缓存
         isKeepAlive: boolean;
 
         // 额外属性
         [key: string]: any;
-    };
+    }
     type AppRouteMeta = Partial<RouteMeta>;
 }

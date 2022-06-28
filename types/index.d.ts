@@ -10,11 +10,11 @@ declare type Nullable<T> = T | null;
 declare type Recordable<T = any> = Record<string, T>;
 
 declare type DeepRequired<T> = {
-    [P in keyof T]-?: T[P] extends object ? DeepRequired<T[P]> : T[P]
+    [P in keyof T]-?: T[P] extends object ? DeepRequired<T[P]> : T[P];
 };
 
 declare interface Fn<T = any, R = T> {
     (...arg: T[]): R;
-};
+}
 
-declare type ViteCommand = "build" | "serve";
+declare type ViteCommand = 'build' | 'serve';

@@ -7,10 +7,10 @@
  */
 export function viteServerProxy() {
     return {
-        "/api": {
-            target: "http://jsonplaceholder.typicode.com/",
+        '/api': {
+            target: 'http://jsonplaceholder.typicode.com/',
             changeOrigin: true,
-            rewrite: (path: string) => path.replace(/^\/api/, ""),
-        }
-    }
+            rewrite: (path: string) => path.replace(/^\/api/, ''),
+        },
+    };
 }

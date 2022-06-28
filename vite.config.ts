@@ -45,13 +45,13 @@ const setupConfig: UserConfigExport = ({ command, mode }): UserConfig => {
             stringify: false,
         },
         optimizeDeps: {
-            include: []
+            include: [],
         },
         test: {
             globals: true,
             environment: 'node',
         },
-    }
-}
+    };
+};
 
 export default defineConfig(setupConfig);

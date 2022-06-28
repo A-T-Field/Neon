@@ -15,9 +15,9 @@ export function setupCompressionPlugins(): PluginsType {
             verbose: true,
             disable: false,
             threshold: 10240,
-            algorithm: "gzip",
-            ext: ".gz",
-            deleteOriginFile: false
-        })
+            algorithm: 'gzip',
+            ext: '.gz',
+            deleteOriginFile: false,
+        }),
     ];
 }

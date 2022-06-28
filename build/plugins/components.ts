@@ -8,20 +8,16 @@
 import { PluginsType } from '../plugins';
 
 import viteComponents from 'unplugin-vue-components/vite';
-import { } from 'unplugin-vue-components/resolvers';
+import {} from 'unplugin-vue-components/resolvers';
 
 export function setupComponentPlugins(): PluginsType {
     return [
         viteComponents({
             resolvers: [],
-            dirs: [
-                "src/components",
-                "src/layout",
-                "src/pages"
-            ],
-            extensions: ["vue", "tsx"],
+            dirs: ['src/components', 'src/layout', 'src/pages'],
+            extensions: ['vue', 'tsx'],
             dts: true,
             deep: true,
-        })
+        }),
     ];
 }

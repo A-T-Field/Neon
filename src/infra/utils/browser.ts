@@ -7,36 +7,43 @@
  */
 const ua = navigator.userAgent.toLowerCase();
 const testUa = (regExp: RegExp) => regExp.test(ua);
-const testVs = (regExp: RegExp) => ua.match(regExp)?.toString().replace(/[^0-9|_.]/g, '').replace(/_/g, '.');
+const testVs = (regExp: RegExp) =>
+    ua
+        .match(regExp)
+        ?.toString()
+        .replace(/[^0-9|_.]/g, '')
+        .replace(/_/g, '.');
 
 // 系统
-const system = new Map([
-    [testUa(/windows|win32|win64|wow32|wow64/g), 'windows'], // windows系统
-    [testUa(/macintosh|macintel/g), 'macos'], // macos系统
-    [testUa(/x11/g), 'linux'], // linux系统
-    [testUa(/android|adr/g), 'android'], // android系统
-    [testUa(/ios|iphone|ipad|ipod|iwatch/g), 'ios'], // ios系统
-]).get(true) || 'unknow';
+const system =
+    new Map([
+        [testUa(/windows|win32|win64|wow32|wow64/g), 'windows'], // windows系统
+        [testUa(/macintosh|macintel/g), 'macos'], // macos系统
+        [testUa(/x11/g), 'linux'], // linux系统
+        [testUa(/android|adr/g), 'android'], // android系统
+        [testUa(/ios|iphone|ipad|ipod|iwatch/g), 'ios'], // ios系统
+    ]).get(true) || 'unknow';
 
 // 系统版本
-const systemVs = new Map([
-    [
-        'windows',
-        new Map([
-            [testUa(/windows nt 5.0|windows 2000/g), '2000'],
-            [testUa(/windows nt 5.1|windows xp/g), 'xp'],
-            [testUa(/windows nt 5.2|windows 2003/g), '2003'],
-            [testUa(/windows nt 6.0|windows vista/g), 'vista'],
-            [testUa(/windows nt 6.1|windows 7/g), '7'],
-            [testUa(/windows nt 6.2|windows 8/g), '8'],
-            [testUa(/windows nt 6.3|windows 8.1/g), '8.1'],
-            [testUa(/windows nt 10.0|windows 10/g), '10'],
-        ]).get(true),
-    ],
-    ['macos', testVs(/os x [\d._]+/g)],
-    ['android', testVs(/android [\d._]+/g)],
-    ['ios', testVs(/os [\d._]+/g)],
-]).get(system) || 'unknow';
+const systemVs =
+    new Map([
+        [
+            'windows',
+            new Map([
+                [testUa(/windows nt 5.0|windows 2000/g), '2000'],
+                [testUa(/windows nt 5.1|windows xp/g), 'xp'],
+                [testUa(/windows nt 5.2|windows 2003/g), '2003'],
+                [testUa(/windows nt 6.0|windows vista/g), 'vista'],
+                [testUa(/windows nt 6.1|windows 7/g), '7'],
+                [testUa(/windows nt 6.2|windows 8/g), '8'],
+                [testUa(/windows nt 6.3|windows 8.1/g), '8.1'],
+                [testUa(/windows nt 10.0|windows 10/g), '10'],
+            ]).get(true),
+        ],
+        ['macos', testVs(/os x [\d._]+/g)],
+        ['android', testVs(/android [\d._]+/g)],
+        ['ios', testVs(/os [\d._]+/g)],
+    ]).get(system) || 'unknow';
 
 // 平台
 let platform = 'unknow';
@@ -67,22 +74,24 @@ const [engine = 'unknow', supporter = 'unknow'] = new Map([
 ]).get(true) || ['unknow', 'unknow'];
 
 // 内核版本
-const engineVs = new Map([
-    ['webkit', testVs(/applewebkit\/[\d._]+/g)],
-    ['gecko', testVs(/gecko\/[\d._]+/g)],
-    ['presto', testVs(/presto\/[\d._]+/g)],
-    ['trident', testVs(/trident\/[\d._]+/g)],
-]).get(engine) || 'unknow';
+const engineVs =
+    new Map([
+        ['webkit', testVs(/applewebkit\/[\d._]+/g)],
+        ['gecko', testVs(/gecko\/[\d._]+/g)],
+        ['presto', testVs(/presto\/[\d._]+/g)],
+        ['trident', testVs(/trident\/[\d._]+/g)],
+    ]).get(engine) || 'unknow';
 
 // 载体版本
-const supporterVs = new Map([
-    ['firefox', testVs(/firefox\/[\d._]+/g)],
-    ['opera', testVs(/opr\/[\d._]+/g)],
-    ['iexplore', testVs(/(msie [\d._]+)|(rv:[\d._]+)/g)],
-    ['edge', testVs(/edge\/[\d._]+/g)],
-    ['safari', testVs(/version\/[\d._]+/g)],
-    ['chrome', testVs(/chrome\/[\d._]+/g)],
-]).get(supporter) || 'unknow';
+const supporterVs =
+    new Map([
+        ['firefox', testVs(/firefox\/[\d._]+/g)],
+        ['opera', testVs(/opr\/[\d._]+/g)],
+        ['iexplore', testVs(/(msie [\d._]+)|(rv:[\d._]+)/g)],
+        ['edge', testVs(/edge\/[\d._]+/g)],
+        ['safari', testVs(/version\/[\d._]+/g)],
+        ['chrome', testVs(/chrome\/[\d._]+/g)],
+    ]).get(supporter) || 'unknow';
 
 // 外壳和外壳版本
 const [shell = 'none', shellVs = 'unknow'] = new Map([
@@ -100,47 +109,54 @@ interface IBrowserUnit {
     value: string;
     label: string;
 }
-type BrowserType = Record<string, IBrowserUnit>
+type BrowserType = Record<string, IBrowserUnit>;
 export default function (): BrowserType {
-    const merge: BrowserType = shell === "node" ? {} : {
-        shell: {
-            value: shell,
-            label: "外壳"
-        },
-        shellVs: {
-            value: shellVs,
-            label: "外壳版本"
-        }
-    };
+    const merge: BrowserType =
+        shell === 'node'
+            ? {}
+            : {
+                  shell: {
+                      value: shell,
+                      label: '外壳',
+                  },
+                  shellVs: {
+                      value: shellVs,
+                      label: '外壳版本',
+                  },
+              };
 
-    return Object.assign({}, {
-        engine: {
-            value: engine,
-            label: "内核"
+    return Object.assign(
+        {},
+        {
+            engine: {
+                value: engine,
+                label: '内核',
+            },
+            engineVs: {
+                value: engineVs,
+                label: '内核版本',
+            },
+            platform: {
+                value: platform,
+                label: '平台',
+            },
+            supporter: {
+                value: supporter,
+                label: '载体',
+            },
+            supporterVs: {
+                value: supporterVs,
+                label: '载体版本',
+            },
+            system: {
+                value: system,
+                label: '系统',
+            },
+            systemVs: {
+                value: systemVs,
+                label: '系统版本',
+            },
         },
-        engineVs: {
-            value: engineVs,
-            label: "内核版本"
-        },
-        platform: {
-            value: platform,
-            label: "平台"
-        },
-        supporter: {
-            value: supporter,
-            label: "载体"
-        },
-        supporterVs: {
-            value: supporterVs,
-            label: "载体版本"
-        },
-        system: {
-            value: system,
-            label: "系统"
-        },
-        systemVs: {
-            value: systemVs,
-            label: "系统版本"
-        }
-    }, merge);
+        merge
+    );
 }

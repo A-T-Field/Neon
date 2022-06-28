@@ -11,8 +11,8 @@ export function viteCss(): CSSOptions {
     return {
         preprocessorOptions: {
             scss: {
-                additionalData: `@import "@neon/assets/style/var.scss";`
-            }
-        }
-    }
+                additionalData: `@import "@neon/assets/style/var.scss";`,
+            },
+        },
+    };
 }

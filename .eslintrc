@@ -1,3 +1,14 @@
 {
-    "extends": "@wiede"
+    "extends": [
+        "@wiede/eslint-config",
+        "prettier"
+    ],
+    "plugins": [
+        "prettier"
+    ],
+    "rules": {
+        "prettier/prettier": [
+            "error"
+        ]
+    }
 }

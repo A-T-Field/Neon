@@ -12,9 +12,9 @@ import pluginVueLayouts from 'vite-plugin-vue-layouts';
 export function setupVueLayouts(): PluginsType {
     return [
         pluginVueLayouts({
-            layoutsDirs: "src/layouts",
-            defaultLayout: "common",
-            extensions: ["vue", "tsx"]
-        })
-    ]
+            layoutsDirs: 'src/layouts',
+            defaultLayout: 'common',
+            extensions: ['vue', 'tsx'],
+        }),
+    ];
 }

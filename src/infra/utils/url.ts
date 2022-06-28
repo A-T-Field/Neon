@@ -10,7 +10,7 @@ export function urlBreakupParams(url: string): any {
     const paramsString = url.split('?');
     if (paramsString.length <= 1) return {};
 
-    paramsString[1].split('&').forEach(item => {
+    paramsString[1].split('&').forEach((item) => {
         const [key, val] = item.split('=');
         params[key] = val;
     });

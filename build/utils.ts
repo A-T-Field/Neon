@@ -6,8 +6,8 @@
  * @Description: file content
  */
 export function isBuild(command: ViteCommand): boolean {
-    return command === "build";
+    return command === 'build';
 }
 export function isServe(command: ViteCommand): boolean {
-    return command === "serve";
+    return command === 'serve';
 }

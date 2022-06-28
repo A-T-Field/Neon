@@ -9,11 +9,11 @@ import type { BuildOptions } from 'vite';
 
 export function viteBuild(env: ImportMetaEnv): BuildOptions {
     return {
-    target: "modules",
-minify: "terser",
-sourcemap: "hidden",
-chunkSizeWarningLimit: 500,
-assetsInlineLimit: 4096,
+        target: 'modules',
+        minify: 'terser',
+        sourcemap: 'hidden',
+        chunkSizeWarningLimit: 500,
+        assetsInlineLimit: 4096,
         polyfillModulePreload: true,
         cssCodeSplit: true,
         ssrManifest: false,
@@ -26,15 +26,15 @@ assetsInlineLimit: 4096,
             compress: {
                 keep_infinity: true,
                 drop_debugger: env.VITE_DROP_DEBUGGER,
-                drop_console: env.VITE_DROP_CONSOLE
-            }
+                drop_console: env.VITE_DROP_CONSOLE,
+            },
         },
         rollupOptions: {
             output: {
                 chunkFileNames: `${env.VITE_ASSETS_DIR}/js/[name]-[hash].js`,
                 entryFileNames: `${env.VITE_ASSETS_DIR}/js/[name]-[hash].js`,
-                assetFileNames: `${env.VITE_ASSETS_DIR}/[name]-[hash].[ext]`
-            }
-        }
-    }
+                assetFileNames: `${env.VITE_ASSETS_DIR}/[name]-[hash].[ext]`,
+            },
+        },
+    };
 }

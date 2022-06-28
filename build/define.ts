@@ -10,9 +10,9 @@ import pkg from '../package.json';
 export type AppInfoPackage = {
     name: string;
     version: string;
-    dependencies: Record<string, string>,
-    devDependencies: Record<string, string>
-}
+    dependencies: Record<string, string>;
+    devDependencies: Record<string, string>;
+};
 
 export function viteDefine() {
     const { name, version, dependencies, devDependencies } = pkg;
@@ -21,12 +21,12 @@ export function viteDefine() {
         name,
         version,
         dependencies,
-        devDependencies
+        devDependencies,
     };
 
     return {
         pkg: __APP_INFO__,
         lastBuildTime: Date.now(),
         __VUE_OPTIONS_API__: false,
-    }
+    };
 }

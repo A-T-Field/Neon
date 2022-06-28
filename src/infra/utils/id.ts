@@ -5,6 +5,4 @@
  * @LastEditTime: 2022-04-08 16:18:39
  * @Description: file content
  */
-export {
-    v4 as uuidv4
-} from 'uuid';
+export { v4 as uuidv4 } from 'uuid';

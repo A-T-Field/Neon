@@ -25,14 +25,11 @@ export function vitePlugins(command: ViteCommand): PluginsType {
         // ...setupVueLayouts(),
         ...setupVuePlugins(),
         ...setupComponentPlugins(),
-        ...setupImportPlugins()
+        ...setupImportPlugins(),
     ];
 
     if (isBuild(command)) {
-        plugins.push(
-            ...setupCompressionPlugins(),
-            ...setupVisualizerPlugins()
-        );
+        plugins.push(...setupCompressionPlugins(), ...setupVisualizerPlugins());
     }
 
     return plugins;

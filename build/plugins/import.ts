@@ -11,13 +11,8 @@ import autopImport from 'unplugin-auto-import/vite';
 export function setupImportPlugins(): PluginsType {
     return [
         autopImport({
-            imports: [
-                'vue',
-                'vue-router',
-                'pinia',
-                'vitest'
-            ],
-            dts: true
-        })
-    ]
+            imports: ['vue', 'vue-router', 'pinia', 'vitest'],
+            dts: true,
+        }),
+    ];
 }

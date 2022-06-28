@@ -17,14 +17,12 @@ function extendRoute(router: RouteRecordRaw, parent: RouteRecordRaw) {
 export function setupPages(): PluginsType {
     return [
         pluginPages({
-            importMode: "async",
-            routeBlockLang: "json",
-            dirs: [
-                { dir: "src/pages", baseRoute: "" }
-            ],
-            extensions: ["vue", "tsx"],
+            importMode: 'async',
+            routeBlockLang: 'json',
+            dirs: [{ dir: 'src/pages', baseRoute: '' }],
+            extensions: ['vue', 'tsx'],
             exclude: [],
-            extendRoute
-        })
-    ]
+            extendRoute,
+        }),
+    ];
 }

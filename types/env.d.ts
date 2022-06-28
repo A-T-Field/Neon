@@ -8,10 +8,10 @@
 /// <reference types="vite/client" />
 
 declare module '*.vue' {
-    import type { DefineComponent } from 'vue'
+    import type { DefineComponent } from 'vue';
     // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/ban-types
-    const component: DefineComponent<{}, {}, any>
-    export default component
+    const component: DefineComponent<{}, {}, any>;
+    export default component;
 }
 
 declare module '*.json' {
@@ -31,9 +31,9 @@ interface ImportMetaEnv extends Record<string, any> {
     VITE_BASE_URI: string;
     VITE_DROP_DEBUGGER: boolean;
     VITE_DROP_CONSOLE: boolean;
-    VITE_LOG_LEVEL: "info" | "warn" | "error";
+    VITE_LOG_LEVEL: 'info' | 'warn' | 'error';
 }
 
 interface ImportMeta {
-    readonly env: ImportMetaEnv
+    readonly env: ImportMetaEnv;
 }
