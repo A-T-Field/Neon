@@ -1,17 +1,16 @@
 /*
- * @FilePath: /Neon/test/parse.test.ts
+ * @FilePath: \Neon\test\parse.test.ts
  * @Author: maggot-code
  * @Date: 2022-06-28 13:56:52
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-06-28 23:47:07
+ * @LastEditTime: 2022-07-01 12:16:33
  * @Description:
  */
 import { test, expect } from 'vitest';
-import { toParse } from '@neon/infra/utils/parse';
 
 /**
- * @example "@request()"
+ * @example ""
  */
-test('to parse @request', () => {
+test('to parse', () => {
     expect(true).toBe(true);
 });
