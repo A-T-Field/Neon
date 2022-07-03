@@ -2,7 +2,7 @@
  * @Author: maggot-code
  * @Date: 2022-03-28 16:42:05
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-04-23 17:43:09
+ * @LastEditTime: 2022-07-03 17:59:20
  * @Description: file content
  */
 import { isFunc } from '@neon-utils/checkers';

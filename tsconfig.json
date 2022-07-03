@@ -48,13 +48,13 @@
                 "src/services/store/*"
             ],
             "@neon-conf/*": [
-                "src/infra/config/*"
+                "src/shared/config/*"
             ],
             "@neon-utils/*": [
-                "src/infra/utils/*"
+                "src/shared/utils/*"
             ],
             "@neon-layouts/*": [
-                "src/infra/layouts/*"
+                "src/shared/layouts/*"
             ],
             "@neon-components/*": [
                 "src/components/*"
