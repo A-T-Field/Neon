@@ -11,7 +11,7 @@
     "vueIndentScriptAndStyle": true,
     "endOfLine": "lf",
     "embeddedLanguageFormatting": "off",
-    "proseWrap": "always",
+    "proseWrap": "never",
     "htmlWhitespaceSensitivity": "css",
     "jsxSingleQuote": false,
     "insertPragma": false,
