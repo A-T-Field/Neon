@@ -93,3 +93,27 @@
     "schema":{}
 }
 ```
+
+```mermaid
+classDiagram
+class Field {
+	+key : FieldKey
+	+fieldValue : FieldValue
+}
+class FieldKey {
+	+value : string | number
+	+toEqual(other:Field) boolean
+}
+class FieldValue {
+	+value : any
+	+defaultValue : any
+	+initializeValue : any
+	+setupValue(value:any) void
+	+setupDefault(value:any) void
+	+setupInitialize(value:any) void
+}
+
+Field *-- FieldKey
+Field *-- FieldValue
+```
+
