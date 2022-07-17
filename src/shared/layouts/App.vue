@@ -2,17 +2,23 @@
  * @Author: maggot-code
  * @Date: 2022-04-19 23:57:05
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-07-17 15:51:31
+ * @LastEditTime: 2022-07-17 18:26:58
  * @Description: file content
 -->
 <script setup lang='ts'>
+import { FieldEntity } from "@neon-form/Field/Field.entity";
+
+const fe = new FieldEntity();
+console.log(fe);
+
 const pwd = ref("");
 const usablepwd = ref("");
 function handlerOutput() {
-    console.log(
-        unref(pwd),
-        unref(usablepwd)
-    );
+    // fe.status.setInitialized(true);
+    // console.log(
+    //     unref(pwd),
+    //     unref(usablepwd)
+    // );
 }
 </script>
 
@@ -25,6 +31,8 @@ function handlerOutput() {
             <p>密码输出：{{pwd}}</p>
             <p>确认密码输出：{{usablepwd}}</p>
         </div>
+        <!-- <h1>字段初始化状态：{{fe.status.initialized.value}}</h1>
+        <h1>字段初始化描述：{{fe.status.initialized.label}}</h1> -->
     </form>
 </template>
 
