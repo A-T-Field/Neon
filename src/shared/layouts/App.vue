@@ -2,14 +2,14 @@
  * @Author: maggot-code
  * @Date: 2022-04-19 23:57:05
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-07-17 18:26:58
+ * @LastEditTime: 2022-07-18 00:48:16
  * @Description: file content
 -->
 <script setup lang='ts'>
-import { FieldEntity } from "@neon-form/Field/Field.entity";
+import {FieldEntity} from "@neon-form/Field/Field.entity";
 
-const fe = new FieldEntity();
-console.log(fe);
+const field = new FieldEntity();
+console.log(field);
 
 const pwd = ref("");
 const usablepwd = ref("");
