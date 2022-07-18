@@ -56,11 +56,11 @@
             "@neon-layouts/*": [
                 "src/shared/layouts/*"
             ],
-            "@neon-form/*": [
-                "src/shared/form/*"
-            ],
             "@neon-components/*": [
                 "src/components/*"
+            ],
+            "@neon-form/*": [
+                "src/shared/form/*"
             ]
         }
     },
