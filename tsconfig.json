@@ -58,9 +58,6 @@
             ],
             "@neon-components/*": [
                 "src/components/*"
-            ],
-            "@neon-form/*": [
-                "src/shared/form/*"
             ]
         }
     },
