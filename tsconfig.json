@@ -38,6 +38,9 @@
             "@neon/*": [
                 "src/*"
             ],
+            "@neon-services/*": [
+                "src/services/*"
+            ],
             "@neon-http/*": [
                 "src/services/network/http/*"
             ],
