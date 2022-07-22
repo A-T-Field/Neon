@@ -2,7 +2,7 @@
  * @Author: maggot-code
  * @Date: 2022-03-26 21:15:17
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-07-03 19:29:20
+ * @LastEditTime: 2022-07-22 10:52:33
  * @Description: file content
  */
 import { createApp } from 'vue';
@@ -11,7 +11,6 @@ import AppProxy from '@neon-layouts/AppProxy.vue';
 import App from '@neon-layouts/App.vue';
 
 import 'normalize.css';
-import 'vfonts/Lato.css';
 import '@neon/assets/style/index.scss';
 
 async function main() {
